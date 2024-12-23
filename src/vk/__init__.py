@@ -1,0 +1,1 @@
+from .vkclient import VKClient
