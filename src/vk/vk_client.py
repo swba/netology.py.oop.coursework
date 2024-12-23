@@ -4,8 +4,7 @@ from .types import VKError, VKPhotosGetParams
 
 
 class VKClient:
-    """
-    VK API client.
+    """VK API client.
     @see https://dev.vk.com/ru/reference
 
     """
@@ -16,8 +15,20 @@ class VKClient:
         self.__token = token
         self.__version = version
 
-    def _request(self, path: str, params: dict = None):
-        """Sends arbitrary requests to the API."""
+    def _request(self, path: str, params: dict = None) -> dict:
+        """Sends arbitrary requests to VK API.
+
+        Args:
+            path: Endpoint path like "photos.get".
+            params: Endpoint parameters, if any. Defaults to None.
+
+        Returns:
+            Parsed endpoint's response.
+
+        Raises:
+            VKError: If VK API responded with an error.
+
+        """
         url = VKClient.BASE_URL + path.lstrip('/')
         params = {
             **(params or {}),
@@ -38,10 +49,19 @@ class VKClient:
             case _:
                 raise VKError(f'Server error ({response.status_code})')
 
-    def photos_get(self, params: VKPhotosGetParams):
-        """
-        Returns photos from an album.
+    def photos_get(self, params: VKPhotosGetParams) -> dict:
+        """Returns photos from a VK album.
         @see https://dev.vk.com/ru/method/photos.get
+
+        Args:
+            params: Request parameters. ``owner_id`` is required; default value
+                for ``album_id`` is "profile" and for ``extended`` is 1.
+
+        Returns:
+            Parsed endpoint response containing photos information.
+
+        Raises:
+            VKError: If VK API responded with an error.
 
         """
         params = {

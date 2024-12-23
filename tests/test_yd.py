@@ -56,9 +56,12 @@ class TestYd:
                 upload = upload_file.read()
 
                 # Test uploading to a non-existing folder.
-                print(yd.file_upload(upload, path))
+                assert yd.file_upload(upload, path) is True
 
                 # Test uploading to an existing folder without overwrite.
                 with raises(YDError) as e:
                     yd.file_upload(upload, path, False)
                     assert str(e.value).startswith('(DiskResourceAlreadyExistsError)')
+
+                # Test uploading to an existing folder with overwrite.
+                assert yd.file_upload(upload, path, True) is True

@@ -7,8 +7,7 @@ class VKError(Exception):
 
 
 class VKGeneralParams(TypedDict, total=False):
-    """
-    General API parameters.
+    """General API parameters.
     @see https://dev.vk.com/en/api/api-requests#General%20parameters
 
     """
@@ -17,10 +16,7 @@ class VKGeneralParams(TypedDict, total=False):
 
 
 class VKPhotosGetParams(VKGeneralParams, total=False):
-    """
-    Parameters of the photos.get endpoint.
-    Note that this type doesn't include `owner_id` and `album_id`
-    parameters, which are required
+    """Parameters of the photos.get endpoint.
     @see https://dev.vk.com/en/method/photos.get#Parameters
 
     """

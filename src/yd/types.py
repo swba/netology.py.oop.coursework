@@ -2,14 +2,12 @@ from typing import TypedDict, Literal
 
 
 class YDError(Exception):
-    """Custom exception for YandexDisk API errors."""
+    """Custom exception for Yandex Disk API errors."""
     pass
 
 
 class YDResponse(TypedDict):
-    """
-    Format of Yandex Disk API responses which seems to be common for
-    all endpoints.
+    """General Yandex Disk API response's format.
 
     """
     href: str
