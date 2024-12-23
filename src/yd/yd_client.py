@@ -13,6 +13,12 @@ class YDClient:
     BASE_URL = 'https://cloud-api.yandex.net/v1/disk/'
 
     def __init__(self, token: str):
+        """Creates a Yandex Disk API client.
+
+        Args:
+            token: Access token for Yandex Disk API.
+
+        """
         self.__token = token
 
     def _request(self, method: str, name: str = '', params: dict = None) -> YDResponse:

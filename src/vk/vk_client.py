@@ -12,6 +12,13 @@ class VKClient:
     BASE_URL = 'https://api.vk.com/method/'
 
     def __init__(self, token: str, version: str = '5.199'):
+        """Creates a VK API client.
+
+        Args:
+            token: Access token for VK API.
+            version: VK API version. Defaults to "5.199".
+
+        """
         self.__token = token
         self.__version = version
 
