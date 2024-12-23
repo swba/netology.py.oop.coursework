@@ -1,1 +1,1 @@
-from .vkclient import VKClient
+from .vk_client import VKClient

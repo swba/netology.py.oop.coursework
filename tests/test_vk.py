@@ -1,7 +1,7 @@
 from pytest import raises
 
 from src.vk import VKClient
-from src.vk.types import VKError, VKPhotosGetParams
+from src.vk.types import VKError
 
 
 class TestVK:
