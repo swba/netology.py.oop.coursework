@@ -1,7 +1,6 @@
 from pytest import raises
 
-from src.vk import VKClient
-from src.vk.types import VKError
+from vk_backup import VKClient, VKError
 
 
 class TestVK:
@@ -9,8 +8,8 @@ class TestVK:
     VK_USER_ID = '153151548'
 
     def test_photos_get(self):
-        """Tests. Vk.photos_get() method."""
-        with open('.token_vk') as f:
+        """Tests. VKClient.photos_get() method."""
+        with open('tokens/.vk') as f:
             token = f.read()
 
             # Test access denied error with incorrect token.

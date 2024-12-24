@@ -1,15 +1,14 @@
 from time import time
 from pytest import raises
 
-from src.yd import YDClient
-from src.yd.types import YDError
+from vk_backup import YDClient, YDError
 
 
 class TestYd:
 
     def test_connection(self):
         """Tests connection to Yandex Disk."""
-        with open('.token_yd') as f:
+        with open('tokens/.yd') as f:
             token = f.read()
 
             # Test request with incorrect token.
@@ -22,8 +21,8 @@ class TestYd:
             assert type(yd.capacity()) == dict
 
     def test_folder_create(self):
-        """Tests YD.folder_create() method."""
-        with open('.token_yd') as f:
+        """Tests YDClient.folder_create() method."""
+        with open('tokens/.yd') as f:
             token = f.read()
             yd = YDClient(token)
 
@@ -44,14 +43,14 @@ class TestYd:
 
     def test_file_upload(self):
         """Tests YD.file_upload() method."""
-        with open('.token_yd') as token_file:
+        with open('tokens/.yd') as token_file:
             token = token_file.read()
             yd = YDClient(token)
 
             folder = f'test-upload-{time()}'
             yd.folder_create(folder)
 
-            with open('upload.jpg', 'rb') as upload_file:
+            with open('assets/upload.jpg', 'rb') as upload_file:
                 path = f'{folder}/upload.jpg'
                 upload = upload_file.read()
 

@@ -1,11 +1,11 @@
 import requests
 
-from .types import VKError, VKPhotosGetParams
+from .vk_types import VKError, VKPhotosGetParams
 
 
 class VKClient:
     """VK API client.
-    @see https://dev.vk.com/ru/reference
+    See https://dev.vk.com/ru/reference
 
     """
 
@@ -58,11 +58,11 @@ class VKClient:
 
     def photos_get(self, params: VKPhotosGetParams) -> dict:
         """Returns photos from a VK album.
-        @see https://dev.vk.com/ru/method/photos.get
+        See https://dev.vk.com/ru/method/photos.get
 
         Args:
-            params: Request parameters. ``owner_id`` is required; default value
-                for ``album_id`` is "profile" and for ``extended`` is 1.
+            params: Request parameters. ``owner_id`` is required, and
+                default value for ``album_id`` is "profile".
 
         Returns:
             Parsed endpoint response containing photos information.
@@ -72,8 +72,7 @@ class VKClient:
 
         """
         params = {
-            # Add sane default parameters.
-            'extended': 1,
+            # Set default album_id value.
             'album_id': 'profile',
             **(params or {}),
         }

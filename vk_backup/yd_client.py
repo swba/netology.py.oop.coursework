@@ -1,12 +1,12 @@
 import requests
 from typing import AnyStr
 
-from .types import YDError, YDResponse
+from .yd_types import YDError, YDResponse
 
 
 class YDClient:
     """YandexDisk API client.
-    @see https://yandex.ru/dev/disk-api/doc/ru/
+    See https://yandex.ru/dev/disk-api/doc/ru/
 
     """
 
@@ -50,7 +50,7 @@ class YDClient:
 
     def capacity(self):
         """Requests general information about the user's Yandex Disk.
-        @see https://yandex.ru/dev/disk-api/doc/en/reference/capacity
+        See https://yandex.ru/dev/disk-api/doc/en/reference/capacity
 
         Returns:
             Parsed response from Yandex Disk API.
@@ -78,7 +78,7 @@ class YDClient:
 
     def file_upload(self, file: AnyStr, path: str, overwrite: bool = False) -> True:
         """Uploads a file to Yandex Disk.
-        @see https://yandex.ru/dev/disk-api/doc/ru/reference/upload
+        See https://yandex.ru/dev/disk-api/doc/ru/reference/upload
 
         Args:
             file: File to upload.

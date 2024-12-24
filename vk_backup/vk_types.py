@@ -8,7 +8,7 @@ class VKError(Exception):
 
 class VKGeneralParams(TypedDict, total=False):
     """General API parameters.
-    @see https://dev.vk.com/en/api/api-requests#General%20parameters
+    See https://dev.vk.com/en/api/api-requests#General%20parameters
 
     """
     lang: Literal['ru', 'uk', 'be', 'en', 'es', 'fi', 'de', 'it']
@@ -17,7 +17,7 @@ class VKGeneralParams(TypedDict, total=False):
 
 class VKPhotosGetParams(VKGeneralParams, total=False):
     """Parameters of the photos.get endpoint.
-    @see https://dev.vk.com/en/method/photos.get#Parameters
+    See https://dev.vk.com/en/method/photos.get#Parameters
 
     """
     owner_id: Required[str]
