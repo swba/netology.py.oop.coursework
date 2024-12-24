@@ -1,14 +1,16 @@
+import json
+from vk_backup import VKBackup
+
 if __name__ == '__main__':
-    from vk_backup import VKBackup
 
     VK_USER_ID = '153151548'
-    TOKEN_VK = 'YOUR_VK_TOKEN'
-    TOKEN_YD = 'YOUR_YANDEX_DISK_TOKEN'
 
-    backup_yd = VKBackup(TOKEN_VK, {
-        'type': 'yd',
-        'token': TOKEN_YD,
-    })
+    # Get API tokens.
+    with open('tokens.json') as f:
+        tokens = json.load(f)
+
+    # Create a backuper instance.
+    backup_yd = VKBackup(tokens['vk'], tokens['yd'])
 
     # Save photos from profile to a default folder.
     backup_yd.backup({'owner_id': VK_USER_ID})
