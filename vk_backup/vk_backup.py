@@ -52,7 +52,8 @@ class VKBackup:
         Logger.info('Fetching photos information...')
 
         # Get the list of photos.
-        res = self._vk.photos_get(photos_params | {'extended': 1})
+        vk_params = {'album_id': 'profile', 'count': 5} | photos_params | {'extended': 1}
+        res = self._vk.photos_get(vk_params)
         photos = res['items']
 
         # Prepare a folder to upload photos to.
