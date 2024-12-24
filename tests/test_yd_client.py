@@ -34,7 +34,7 @@ class TestYd:
         token = self.get_token()
         yd = YDClient(token)
 
-        folder = f'test-create-{time()}'
+        folder = f'test-create-{int(time())}'
 
         # Test creating a top-level folder.
         res = yd.folder_create(folder)
@@ -54,7 +54,7 @@ class TestYd:
         token = self.get_token()
         yd = YDClient(token)
 
-        folder = f'test-upload-{time()}'
+        folder = f'test-upload-{int(time())}'
         yd.folder_create(folder)
 
         with open(os.path.join(os.getcwd(), 'data', 'test_upload.jpg'), 'rb') as upload_file:
