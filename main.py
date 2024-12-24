@@ -9,4 +9,15 @@ if __name__ == '__main__':
         'type': 'yd',
         'token': TOKEN_YD,
     })
-    backup_yd.backup({'owner_id': VK_USER_ID, 'album_id': 'wall'})
+
+    # Save photos from profile to a default folder.
+    backup_yd.backup({'owner_id': VK_USER_ID})
+
+    # Repeat and get errors that everything already exists.
+    backup_yd.backup({'owner_id': VK_USER_ID})
+
+    # Repeat and overwrite everything.
+    backup_yd.backup({'owner_id': VK_USER_ID}, overwrite=True)
+
+    # Save 5 photos from the wall to a specific folder.
+    backup_yd.backup({'owner_id': VK_USER_ID, 'album_id': 'wall'}, folder="VK Wall!")
