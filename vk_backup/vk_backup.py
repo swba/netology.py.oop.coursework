@@ -108,7 +108,7 @@ class VKBackup:
                 Logger.error(f'Error downloading ({res.status_code})')
 
         # Prepare name of a file to save backup info to.
-        filename = f'backup {int(time.time())}.json'
+        filename = f'backup-{int(time.time())}.json'
 
         # Save backup info into a local file.
         if json_folder is None:
