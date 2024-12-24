@@ -19,5 +19,5 @@ if __name__ == '__main__':
     # Repeat and overwrite everything.
     backup_yd.backup({'owner_id': VK_USER_ID}, overwrite=True)
 
-    # Save 5 photos from the wall to a specific folder.
-    backup_yd.backup({'owner_id': VK_USER_ID, 'album_id': 'wall'}, folder="VK Wall!")
+    # Save 6 photos from the wall to a specific folder.
+    backup_yd.backup({'owner_id': VK_USER_ID, 'album_id': 'wall', 'count': 6}, folder="VK Wall!")

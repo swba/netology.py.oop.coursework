@@ -33,9 +33,10 @@ class VKBackup:
             photos_params: Parameters/filter to get photos from VK API.
                 See https://dev.vk.com/ru/method/photos.get.
                 The only required parameter is ``owner_id``; ``album_id``
-                is equal to "profile" by default. Also, note that
-                ``extended`` is always 1, as likes info is required to
-                prepare names of photos being uploaded.
+                is equal to "profile" and ``count`` is equal to 5 by
+                default. Also, note that ``extended`` is always 1, as
+                likes info is required to prepare names of photos being
+                uploaded.
             folder: Folder to save photos to. If is equal to None (by
                 default), all the photos will be saved to a folder
                 named "VK Photos (Y-m-d)" (for current date).
@@ -61,6 +62,8 @@ class VKBackup:
         if self._yd:
             self._save_to_yandex_disk(photos, folder, overwrite)
 
+        print('Thanks everyone!\n')
+
     def _save_to_yandex_disk(self, photos: list, folder: str, overwrite: bool = False):
         """Saves photos to Yandex Disk.
 
@@ -74,11 +77,11 @@ class VKBackup:
             YDError: If Yandex Disk API responded with an error.
 
         """
-        print(f'Saving {len(photos)} photos to Yandex Disk, folder {folder}.')
+        print(f'Saving {len(photos)} photos to Yandex Disk, folder "{folder}".')
 
         # Create a folder if it doesn't exist yet.
         try:
-            print(f'Creating folder {folder}... ', end='')
+            print(f'Creating folder "{folder}"... ', end='')
             self._yd.folder_create(folder)
             print('Success!')
         except YDError as e:
